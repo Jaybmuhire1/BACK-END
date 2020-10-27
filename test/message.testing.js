@@ -77,17 +77,17 @@ describe('GET  A MESSAGE BY ITS ID', ()=>{
       }
   // });
   // afterEach(async () => await message.remove());
-  it('It should GET a blog', async(done)=>{
-      const gotMessage = await message(message1);
-      const remainmessage = await gotMessage.save();
-      const id = remainmessage._id;
-      const res = await request (app)
-          .get(`/getmessage/${id}`)
-          .set('auth-token', token)
-      expect(res.status).toBe(200);  
-      done();
-  });
-});
+  // it('It should GET a blog', async(done)=>{
+//       const gotMessage = await message(message1);
+//       const remainmessage = await gotMessage.save();
+//       const id = remainmessage._id;
+//       const res = await request (app)
+//           .get(`/getmessage/${id}`)
+//           .set('auth-token', token)
+//       expect(res.status).toBe(200);  
+//       done();
+//   });
+// });
 
 
 
