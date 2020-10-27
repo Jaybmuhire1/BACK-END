@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 
 import app from '../src/index';
 
-// const dbURL = 'mongodb://localhost:27017/testing';
+const dbURL = 'mongodb://localhost:27017/testing';
 
 describe('BLOG TESTING', () => {
 
