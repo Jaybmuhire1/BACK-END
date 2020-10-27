@@ -9,9 +9,9 @@ export const createContact = (req,res,next)=>{
     }, (err) => next(err))
     .catch((err) => next(err));
  }
-  //  SELECT ALL CONTACTS MESSAGES BY ID
+  //  SELECT ALL MESSAGES BY ID
  export const readAllContacts = (req, res, next) =>{
-    Message.find({})
+    Message.find ({})
     .then((contact) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
@@ -33,16 +33,17 @@ export const createContact = (req,res,next)=>{
  // DELETING A CONTACT
  export const deleteContact= async (req, res, next) => {
      let { id } = req.params;
-         const existContact = await Message.find({ _id: id });
-        if (existContact.length) {
+         const existMessages = await Message.find({ _id: id });
+        if (existMessages.length) {
         try {
             const deletedContact = await Message.deleteOne({ _id: id });
-            res.status(200).send(`Contact is deleted ${existBContact}`);
+            res.status(200).send(`Meassage is deleted ${existMessages}`);
+         
          }
         catch (error) {
             res.status(500).json({error: "not deleted"});
         };
          }
-        else { res.status(404).json({ status: 403, error: 'Contact Id does not exist' });
+        else { res.status(404).json({ status: 403, error: 'Message Id does not exist' });
         };
  }

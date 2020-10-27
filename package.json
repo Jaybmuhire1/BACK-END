@@ -4,7 +4,7 @@
   "description": "connect my brand website to backend",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "set PORT=8000 && jest --coverage --setTimeout=30000 --detectOpenHandles --verbose",
     "build": ".\\node_modules\\.bin\\babel src --out-dir dist",
     "start": "node dist/index.js",
     "dev": "nodemon --exec babel-node src/index.js"
@@ -30,5 +30,9 @@
     "@babel/preset-env": "^7.12.1",
     "nodemon": "^2.0.5",
     "supertest": "^5.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
+
 }

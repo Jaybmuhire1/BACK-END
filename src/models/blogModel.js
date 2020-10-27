@@ -3,14 +3,14 @@ import mongoose from 'mongoose';
 const Blog = mongoose.model('Blog', new mongoose.Schema({
     title: {
         type: String,
-        // minlength: 2,
-        // maxlength: 100,
+        minlength: 2,
+        maxlength: 100,
         required: true
     },
     content: {
        type: String,
-        // minlength: 5,
-        // maxlength: 10000,
+        minlength: 5,
+        maxlength: 10000,
         required: true
     },
     publisher: {

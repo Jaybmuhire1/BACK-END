@@ -3,7 +3,7 @@ import {createContact, readAllContacts, readOneContact, deleteContact } from '..
 
 const contactRouter = express.Router();
 
-contactRouter.post('/send', createContact);
+contactRouter.post('/sendmessage', createContact);
 contactRouter.get('/getmessage/:id', readOneContact);
 contactRouter.get('/getmessages', readAllContacts);
 contactRouter.delete('/deletemessage/:id', deleteContact);

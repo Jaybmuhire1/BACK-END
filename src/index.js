@@ -3,22 +3,26 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import blogRouter from './routes/blogRoute';
-import router from './controllers/signup';
 import contactRouter from './routes/messageRoute';
+import userRouter from './routes/userRoute';
 
 
 const app= express();
-dotenv.config();
 
 
-// app.use(express.json());
+// dotenv.config();
+
+// const PORT = process.env.PORT;
+// app.listen(PORT, ()=> console.log(`App running on port ${PORT}`));
+
+app.use(express.json());
 app.use(bodyParser.json());
 app.use('/', blogRouter);
 app.use('/', contactRouter);
-app.use('/', router);
+app.use('/', userRouter);
 
 
-mongoose.connect('mongodb://localhost:27017/capstoneDB', {
+mongoose.connect('mongodb://localhost:127.0.0.1/Jay-brandDB', {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
@@ -27,6 +31,6 @@ mongoose.connect('mongodb://localhost:27017/capstoneDB', {
 ()=> console.log("mongoDB connected!"));
 
 
-const PORT = process.env.PORT;
 
-app.listen(PORT, ()=> console.log(`App running on port ${PORT}`));
+
+export default app;

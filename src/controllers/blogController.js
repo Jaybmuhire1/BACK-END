@@ -1,3 +1,4 @@
+import { generateToken } from '../helpers/token';
 import Blog from '../models/blogModel';
 // import express from 'express';
 
@@ -21,7 +22,7 @@ export const createblog = (req,res,next)=>{
     }, (err) => next(err))
     .catch((err) => next(err));
  }
-
+  //Read All blogs
  export const readblogs = (req, res, next) =>{
    Blog.find({})
     .then((blogs) => {
@@ -32,7 +33,7 @@ export const createblog = (req,res,next)=>{
     .catch((err) => next(err));
  }
 
- 
+ // DELETING A BLOG
  export const deleteblog = async (req, res, next) => {
    let { id } = req.params;
        const existBlog = await Blog.find({ _id: id });
@@ -48,9 +49,28 @@ export const createblog = (req,res,next)=>{
       else { res.status(404).json({ status: 403, error: 'Blog does not exist' });
       };
 }
+//Comment on Blog
+
+// export const postcomment = async(req, res, next) =>{
+//    try {
+//     const token = generateToken(user);
+//     let { id } = req.params;
+//       //  const blogToComment = await Blog.find({ _id: id });
+//     comment.post(req.body)
+//      .then((blog) => {
+//         console.log('Blog commented ', blog);
+//         res.statusCode = 200;
+//         res.json(blog);
+//     }, (err) => next(err))
+    
+//    } catch(err) {
+//      res.status(500).json({error});
+//    }
+// }
 
 
 
+// UPDATING A BLOG
 
 export const updateblog = async (req, res, next) =>{
    try {
@@ -62,3 +82,6 @@ export const updateblog = async (req, res, next) =>{
           res.status(400).json(`Error: ${error}`);
    }
 }
+
+
+
