@@ -10,10 +10,10 @@ import userRouter from './routes/userRoute';
 const app= express();
 
 
-// dotenv.config();
+dotenv.config();
 
-// const PORT = process.env.PORT;
-// app.listen(PORT, ()=> console.log(`App running on port ${PORT}`));
+const PORT = process.env.PORT;
+app.listen(PORT, ()=> console.log(`App running on port ${PORT}`));
 
 app.use(express.json());
 app.use(bodyParser.json());
