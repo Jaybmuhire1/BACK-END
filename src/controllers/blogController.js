@@ -1,15 +1,27 @@
-import { generateToken } from '../helpers/token';
 import Blog from '../models/blogModel';
-// import express from 'express';
+import {decryptToken} from '../helpers/token'
 
-export const createblog = (req,res,next)=>{
-    Blog.create(req.body)
-     .then((blog) => {
-        console.log('Blog Created ', blog);
-        res.statusCode = 200;
-        res.json(blog);
-    }, (err) => next(err))
-    .catch((err) => next(err));
+// const Blog = [];
+export const createblog = (req,res)=> {
+   const auth = req.header.authorization;
+   const token = auth && auth.split('')[1];
+   if(!auth) 
+      res.status(403).json({message: 'please login'})
+   else {
+      user = decryptToken(user)['fullName'];
+      const blog = req.body;
+      blog.publisher = user;
+      blog.date = new Date();
+      Blog.push(blog)
+      res.status(201).json({message: 'blog created', blog, token})
+   }
+
+   //   .then((blog) => {
+   //      console.log('Blog Created ', blog);
+   //      res.statusCode = 200;
+   //      res.json(blog);
+   //  }, (err) => next(err))
+   //  .catch((err) => next(err));
  }
 
  export const readblog = (req, res, next) =>{
@@ -50,24 +62,6 @@ export const createblog = (req,res,next)=>{
       };
 }
 //Comment on Blog
-
-// export const postcomment = async(req, res, next) =>{
-//    try {
-//     const token = generateToken(user);
-//     let { id } = req.params;
-//       //  const blogToComment = await Blog.find({ _id: id });
-//     comment.post(req.body)
-//      .then((blog) => {
-//         console.log('Blog commented ', blog);
-//         res.statusCode = 200;
-//         res.json(blog);
-//     }, (err) => next(err))
-    
-//    } catch(err) {
-//      res.status(500).json({error});
-//    }
-// }
-
 
 
 // UPDATING A BLOG

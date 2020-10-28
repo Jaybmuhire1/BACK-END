@@ -1,6 +1,6 @@
 import request from 'supertest';
 import message from '../src/controllers/messageController';
-// import {generateToken} from '../src/helpers/token';
+
 import mongoose from 'mongoose';
 
 import app from '../src/index';
@@ -58,8 +58,8 @@ describe('MESSAGE TESTING', () => {
 
 
 
-describe('GET  A MESSAGE BY ITS ID', ()=>{
-  let message1;
+// describe('GET  A MESSAGE BY ITS ID', ()=>{
+//   let message1;
   // let token;
   // beforeEach( async()=>{
       // const user = { 
@@ -69,12 +69,12 @@ describe('GET  A MESSAGE BY ITS ID', ()=>{
           
       // }
       // token = generateToken(user);
-      message1 = {
-        fullname : "Kaboss", 
-          email : "ff@gmail.com",
-          content : "Did you know you could be whatver you want to be if you are pasioante to it and hard work", 
+      // message1 = {
+      //   fullname : "Kaboss", 
+      //     email : "ff@gmail.com",
+      //     content : "Did you know you could be whatver you want to be if you are pasioante to it and hard work", 
            
-      }
+      // }
   // });
   // afterEach(async () => await message.remove());
   // it('It should GET a blog', async(done)=>{
@@ -87,7 +87,7 @@ describe('GET  A MESSAGE BY ITS ID', ()=>{
 //       expect(res.status).toBe(200);  
 //       done();
 //   });
-// });
+// })
 
 
 

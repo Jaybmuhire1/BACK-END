@@ -7,7 +7,7 @@ import jwt from 'jsonwebtoken';
  }
 
 
- const decryptToken = (token) => {
+ export const decryptToken = (token) => {
    return jwt.verify(token, 'uyguhuihuihi', (err,userinfo) => {
     if(err) console.log(err.message);
     return userinfo
