@@ -3,7 +3,7 @@ import Blog from '../src/models/blogModel';
 import {generateToken} from '../src/helpers/token';
 import mongoose from 'mongoose';
 
-import app from '../src/index';
+import app from '../src/app';
 
 const dbURL = 'mongodb://localhost:27017/testing';
 

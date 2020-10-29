@@ -10,7 +10,7 @@ blogRouter.get('/getblogs', readblogs);
 blogRouter.post('/createblog', createblog);
 blogRouter.put('/updateblog/:id', updateblog);
 blogRouter.delete('/deleteblog/:id', deleteblog);
-// blogRouter.post('/commentblog/:id', commentblog);
+
 
  
 

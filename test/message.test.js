@@ -4,7 +4,7 @@ import Message from '../src/models/message';
 
 import mongoose from 'mongoose';
 
-import app from '../src/index';
+import app from '../src/app';
 
 
 
