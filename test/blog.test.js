@@ -39,6 +39,7 @@ describe('BLOG TESTING', () => {
 
      expect(blog).not.toBe(null);
     });
+    
   });
 
 
@@ -68,7 +69,7 @@ describe('BLOG TESTING', () => {
    expect(res.status).toBe(200);
    done();
   });
-  })
+})
 
 
 
@@ -137,6 +138,17 @@ describe('DELETING  A BLOG', ()=>{
         expect(res.status).toBe(200);  
         done();
     });     
+    
+    // it('Not delete a blog', async(done)=>{
+    //     const blogToDelete = await Blog(blog1);
+    //     const deletedBlog = await blogToDelete.save();
+    //     const id = deletedBlog._id;
+    //     const res = await request (app)
+    //         .delete(`/deleteBlog/${id}`)
+    //         .set('auth-token', token)
+    //     expect(res.status).toBe(200);  
+    //     done();
+    // });     
 })
 
 
