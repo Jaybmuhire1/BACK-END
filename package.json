@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "connect my brand website to backend",
-  "main": "src/index.js",
+  "main": "src/app.js",
   "scripts": {
     "test": " jest --coverage --setTimeout=30000 --detectOpenHandles --verbose",
     "build": ".\\node_modules\\.bin\\babel src --out-dir dist",
