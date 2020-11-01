@@ -14,20 +14,12 @@ const Blog = mongoose.model('Blog', new mongoose.Schema({
         required: true
     },
     publisher: {
-        type: String,
-        minlength: 2,
-         maxlength: 100,
-         required: true
+        fullName: String
      },
-    publishedOn: {
-        type: Date,
-        default: new Date()
-    },
     editedOn: {
       type: Date,
       default: new Date()
     },
-
     photo: {
         type: String,
         required: false

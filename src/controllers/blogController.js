@@ -1,29 +1,28 @@
 import Blog from '../models/blogModel';
-import {decryptToken} from '../helpers/token'
 
-// const Blog = [];
-export const createblog = (req,res)=> {
-   const auth = req.header.authorization;
-   const token = auth && auth.split('')[1];
-   if(!auth) 
-      res.status(403).json({message: 'please login'})
-   else {
-      user = decryptToken(user)['fullName'];
-      const blog = req.body;
-      blog.publisher = user;
-      blog.date = new Date();
-      Blog.push(blog)
-      res.status(201).json({message: 'blog created', blog, token})
-   }
 
-   //   .then((blog) => {
-   //      console.log('Blog Created ', blog);
-   //      res.statusCode = 200;
-   //      res.json(blog);
-   //  }, (err) => next(err))
-   //  .catch((err) => next(err));
+export const createblog = async(req,res)=> {
+   try {
+      const { title, content} = req.body;
+      const { fullName } = req.user;
+
+      const blog = await Blog.findOne({title});
+      
+      if (blog) return res.status(400).json({msg: 'Blog published before'})
+      
+      const newBlog = await Blog({
+          title,
+          publisher: { fullName },
+          content
+      })
+
+      const savedBlog = await newBlog.save();
+
+      return res.status(201).json({msg: 'blog created', savedBlog})
+  } catch (err) {
+      return res.status(500).json({msg: err.message})
+  }
  }
-
  export const readblog = (req, res, next) =>{
    const {id}=req.params; 
    Blog.findById(id)
@@ -44,7 +43,6 @@ export const createblog = (req,res)=> {
     }, (err) => next(err))
     .catch((err) => next(err));
  }
-
  // DELETING A BLOG
  export const deleteblog = async (req, res, next) => {
    let { id } = req.params;
@@ -76,6 +74,4 @@ export const updateblog = async (req, res, next) =>{
           res.status(400).json(`Error: ${error}`);
    }
 }
-
-
 

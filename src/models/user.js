@@ -9,7 +9,10 @@ const User = mongoose.model('User', new mongoose.Schema({
         type: String,
         required: true
     },
-
+    admin:{
+       type: Boolean,
+       default: false 
+    },
     role: {
         type: String,
         default:"standard user"
