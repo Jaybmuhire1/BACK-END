@@ -44,14 +44,14 @@ describe('GET  MESSAGE BY ITs ID', ()=>{
           content : "Did you know you could be whatver you want to be if you are pasioante to it and hard work" 
       }
 
-  it('It should GET a message', async(done)=>{
+  it('It should GET a message', async()=>{
       const gotMessage = await Message(message1);
       const remainmessage = await gotMessage.save();
       const id = remainmessage._id;
       const res = await request (app)
           .get(`/getmessage/${id}`)
       expect(res.status).toBe(200);  
-      done();
+      // done();
   });
 });
 
@@ -77,7 +77,7 @@ describe('DELETING  A MESSAGE', ()=>{
           
       }
   afterEach(async () => await Message.remove());
-  it('It should delete a blog', async(done)=>{
+  it('It should delete a blog', async()=>{
 
       const gotMessage = await Message(message1);
       const remainmessage = await gotMessage.save();
@@ -86,7 +86,7 @@ describe('DELETING  A MESSAGE', ()=>{
           .delete(`/deletemessage/${id}`)
 
       expect(res.status).toBe(200);  
-      done();
+      // done();
   });     
 })
 
