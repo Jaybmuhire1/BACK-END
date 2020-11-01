@@ -10,6 +10,10 @@
       "/node_modules"
     ]
   },
+  "engines":{
+    "node":"12.19.0"
+  },
+
   "scripts": {
     "test": " jest --coverage --setTimeout=30000 --detectOpenHandles --verbose",
     "build": ".\\node_modules\\.bin\\babel src --out-dir dist",
